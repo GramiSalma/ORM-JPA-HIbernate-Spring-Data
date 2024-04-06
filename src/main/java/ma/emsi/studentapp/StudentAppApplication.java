@@ -10,24 +10,29 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.List;
 
 @SpringBootApplication
-public class StudentAppApplication implements CommandLineRunner {
-    @Autowired
-    private ProductRepository productRepository;
+public class StudentAppApplication implements CommandLineRunner  {
+
 
     public static void main(String[] args) {
         SpringApplication.run(StudentAppApplication.class, args);
     }
+    @Autowired
+    private ProductRepository productRepository;
+
+
+
 
     @Override
     public void run(String... args) throws Exception {
-       // productRepository.save(new Product(null,"Computer",4300,3));
-       // productRepository.save(new Product(null,"Printer",1200,4));
+ //productRepository.save(new Product(null,"Computer",4300,3));
+       //  productRepository.save(new Product(null,"Printer",1200,4));
        // productRepository.save(new Product(null,"Smartphone",3200,32));
-       List<Product> products=productRepository.findAll();
-       products.forEach(p->{
-           System.out.println(p.toString());
-       });
-       Product product=productRepository.findById(Long.valueOf(1)).get();
+        List<Product> products=productRepository.findAll();
+        products.forEach(p-> {
+            System.out.println(p.toString());
+        });
+        Product product=productRepository.
+                findById(Long.valueOf(1)).get();
         System.out.println("*******************************");
         System.out.println(product.getId());
         System.out.println(product.getName());
